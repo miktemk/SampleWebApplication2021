@@ -1,0 +1,80 @@
+:host {
+  .employee-list {
+    .employee {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: #d6d6d6;
+      padding: 5px 10px;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+      &.active {
+        background-color: #f3f3f3;
+      }
+      &:not(.active) {
+        margin-right: 10px;
+      }
+
+      .persona {
+        flex-grow: 1;
+        .name {
+          font-size: 14px;
+          font-weight: 700;
+        }
+        .position {
+          font-size: 10px;
+          color: #808080;
+        }
+      }
+
+      .remove {
+        display: none;
+      }
+      &:hover {
+        .remove {
+          display: block;
+          cursor: pointer;
+          &:hover {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  .employee-section {
+    display: flex;
+    flex-direction: row;
+
+    .employee-list {
+      width: 400px;
+    }
+
+    .employee-form-con {
+      flex-grow: 1;
+      padding: 10px;
+      background-color: #f3f3f3;
+    }
+  }
+
+  .page-header {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+
+    h3 {
+      flex-grow: 1;
+    }
+    button {
+      border-radius: 20px;
+      border: 1px solid #ccc;
+    }
+  }
+}

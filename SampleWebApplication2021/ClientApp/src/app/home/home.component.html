@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="page-header">
+    <h3>Employees</h3>
+    <button (click)="onNewEmployee()">+ Add New</button>
+  </div>
+  <div class="employee-section">
+    <div class="employee-list">
+      <div
+        *ngFor="let employee of employees"
+        class="employee"
+        [ngClass]="{ active: activeEmployee && employee.id === activeEmployee.id }"
+        (click)="onEmployeeSelected(employee)"
+      >
+        <div class="persona">
+          <div class="name">{{ employee.fullName }}</div>
+          <div class="position">{{ employee.position.title }}</div>
+        </div>
+        <div class="remove" (click)="deleteEmployee(employee.id); $event.stopPropagation()">Delete</div>
+      </div>
+    </div>
+    <div class="employee-form-con">
+      <app-profile-form
+        *ngIf="activeEmployee"
+        [positions]="positions"
+        [activeEmployee]="activeEmployee"
+        (onSave)="onSavePressed($event)"
+      ></app-profile-form>
+    </div>
+  </div>
+</div>

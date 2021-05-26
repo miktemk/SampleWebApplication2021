@@ -1,0 +1,31 @@
+<div>
+  <h4>Personal Information</h4>
+  <form class="employee-form" [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label>Full Name</label>
+      <input formControlName="fullName" />
+    </div>
+    <div class="form-field">
+      <label>Address</label>
+      <input formControlName="address" />
+    </div>
+    <div class="form-field">
+      <label>Phone Number</label>
+      <input formControlName="phoneNumber" />
+    </div>
+    <div class="form-field">
+      <label>Position</label>
+      <select formControlName="positionID">
+        <option *ngFor="let position of positions" [value]="position.id">
+          {{ position.title }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <button type="submit" [disabled]="!profileForm.valid">Save</button>
+    </div>
+
+    <!-- <pre>{{ profileForm.value | json }}</pre> -->
+  </form>
+</div>
